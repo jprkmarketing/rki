@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event - Radar Kediri Institute</title>
+  <meta name="description" content="Daftar agenda paket pelatihan dan event dokumentasi dari Radar Kediri Institute.">
+  <meta name="keywords" content="Event RK Institute, Paket Pelatihan, Workshop Kediri, Portofolio Pelatihan">
+
+  <!-- Canonical & Robots -->
+  <link rel="canonical" href="https://rkinstitute.id/event.html">
+  <meta name="author" content="RK Institute">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- GEO Meta Tags -->
+  <meta name="geo.region" content="ID-JI">
+  <meta name="geo.placename" content="Kediri">
+  <meta name="geo.position" content="-7.7828;112.0118">
+  <meta name="ICBM" content="-7.7828, 112.0118">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rkinstitute.id/event.html">
+  <meta property="og:title" content="Event - Radar Kediri Institute">
+  <meta property="og:description" content="Daftar agenda paket pelatihan dan event dokumentasi dari Radar Kediri Institute.">
+  <meta property="og:image" content="https://rkinstitute.id/assets/img/services/Pelatihan Website Coding AI Generasi Z 01.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Event - Radar Kediri Institute",
+    "description": "Daftar agenda paket pelatihan dan event dokumentasi dari Radar Kediri Institute.",
+    "url": "https://rkinstitute.id/event.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "RK Institute",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://rkinstitute.id/assets/img/logo.webp"
+      }
+    },
+    "email": "officialrkinstitute@gmail.com"
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/logo.webp">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+  <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
+  <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    /* FIX: Gunakan visibility+position bukan display:none
+       agar Isotope tetap bisa menghitung dimensi item */
+    .ev-card-container {
+      transition: opacity 0.3s ease;
+    }
+    .ev-card-container.hidden-by-page {
+      position: absolute !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      opacity: 0 !important;
+      z-index: -1 !important;
+    }
+
+    /* Stabilkan tinggi gambar agar Isotope tidak salah hitung */
+    .ev-card-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* Pagination */
+    .ev-pagination li {
+      cursor: pointer;
+    }
+    .ev-pagination li.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .ev-pagination li.active a {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="event-page">
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <img src="assets/img/logo.webp" alt="Logo RK Institute">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="service.html">Layanan</a></li>
+          <li><a href="portofolio.html">Portofolio</a></li>
+          <li class="dropdown">
+            <a href="event.html"><span>Event</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="event.html?filter=pemerintahan">Pemerintahan</a></li>
+              <li><a href="event.html?filter=korporasi">Korporasi</a></li>
+              <li><a href="event.html?filter=sekolah">Sekolah</a></li>
+              <li><a href="event.html?filter=umkm">UMKM</a></li>
+              <li><a href="event.html?filter=edukasi">Edukasi</a></li>
+              <li><a href="event.html?filter=kediri">Kediri</a></li>
+              <li><a href="event.html?filter=nganjuk">Nganjuk</a></li>
+              <li><a href="event.html?filter=jatim">Jawa Timur</a></li>
+              <li><a href="event.html?filter=nasional">Nasional</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="https://wa.me/6283198002246">Daftar Sekarang</a>
+
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+              <h1 class="heading-title">Dokumentasi Event Radar Kediri Institute</h1>
+              <p class="mb-0">Jelajahi rekam jejak pelaksanaan pelatihan dan paket event yang telah sukses kami selenggarakan bersama berbagai mitra instansi dan korporasi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs" data-aos="fade-up" data-aos-delay="200">
+        <div class="container">
+          <ol>
+            <li><a href="index.html"><i class="bi bi-house-door"></i></a></li>
+            <li class="current">Event Radar Kediri Institute</li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Filter Bar -->
+        <div class="events-filter-bar" data-aos="fade-up" data-aos-delay="150">
+          <div class="filter-tags">
+            <button class="filter-tag active" data-filter="*">Semua Event</button>
+            <button class="filter-tag" data-filter=".cat-pemerintahan">Pemerintahan</button>
+            <button class="filter-tag" data-filter=".cat-korporasi">Korporasi</button>
+            <button class="filter-tag" data-filter=".cat-sekolah">Sekolah</button>
+            <button class="filter-tag" data-filter=".cat-umkm">UMKM</button>
+            <button class="filter-tag" data-filter=".cat-edukasi">Edukasi</button>
+            <button class="filter-tag" data-filter=".cat-kediri">Kediri</button>
+            <button class="filter-tag" data-filter=".cat-nganjuk">Nganjuk</button>
+            <button class="filter-tag" data-filter=".cat-jatim">Jawa Timur</button>
+            <button class="filter-tag" data-filter=".cat-nasional">Nasional</button>
+          </div>
+          <div class="events-search">
+            <i class="bi bi-search"></i>
+            <input type="text" id="eventSearch" placeholder="Cari dokumentasi event...">
+          </div>
+        </div>
+
+        <!-- Event Cards Grid -->
+        <!-- PENTING: Hapus class isotope-container dari sini agar main.js tidak menginisialisasi Isotope duluan -->
+        <div class="row g-4" id="evGrid">
+
+          <!-- Card 1: Magang Mahasiswa -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-jatim cat-kediri cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Magang Digital Marketing RK Institute 01.webp" alt="Program Magang Mahasiswa Digital Marketing" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Magang Mahasiswa</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-pelatihan-jurnalistik-investigasi.html">Program Magang Mahasiswa</a></h3>
+                <p class="ev-desc">RK Institute meluncurkan program magang eksklusif bersama GM Academy Malang untuk mencetak 30 talenta digital terbaik di Kediri.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">Terbaru</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="pelatihan-jurnalistik-investigasi.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 2: Pelatihan Digital Marketing SMKN 1 Kras -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-sekolah cat-kediri">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Digital Marketing SMKN 1 Kras Kediri.webp" alt="Pelatihan Digital Marketing SMKN 1 Kras Kediri" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Digital Marketing</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-pelatihan-jurnalistik-investigasi.html">Pelatihan Digital Marketing SMKN 1 Kras</a></h3>
+                <p class="ev-desc">SMKN 1 Kras berkolaborasi dengan Jawa Pos Radar Kediri menggelar pelatihan digital marketing.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2025</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="pelatihan-jurnalistik-investigasi.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 3: Pelatihan Digital Marketing Guru Honorer Kediri -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-kediri cat-pemerintahan cat-sekolah">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Digital Marketing Guru Honorer.webp" alt="Pelatihan Digital Marketing Guru Honorer Kediri" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Digital Marketing</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-pelatihan-jurnalistik-investigasi.html">Pelatihan Digital Marketing Guru Honorer Kediri</a></h3>
+                <p class="ev-desc">Pelatihan digital marketing disambut antusias oleh puluhan guru honorer di Kabupaten Kediri.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Dinas Pendidikan Kediri">
+                    <span>Dinas Pendidikan Kediri</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="pelatihan-jurnalistik-investigasi.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 4: Jurnalistik Investigasi -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-pemerintaha cat-kediri">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/index/Kegiatan Jurnalistik Rk Institute.webp" alt="Pelatihan Jurnalistik Investigasi Instansi" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Jurnalistik</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-pelatihan-jurnalistik-investigasi.html">Pelatihan Jurnalistik Investigasi</a></h3>
+                <p class="ev-desc">Program penguatan kapasitas staf Humas dalam menyusun narasi liputan mendalam dan verifikasi data.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">Terbaru</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="pelatihan-jurnalistik-investigasi.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 5: Pelatihan Media Sosial dan Branding -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-umkm cat-edukasi cat-kediri">
+            <article class="ev-card ev-card--featured">
+              <div class="ev-featured-ribbon">Terpopuler</div>
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Pemasaran Sosial Media dan Branding.webp" alt="Pelatihan Media Sosial & Branding UMKM untuk Guru Honorer Kabupaten Kediri" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Branding</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-strategi-sosial-media-branding.html">Pelatihan Media Sosial & Branding</a></h3>
+                <p class="ev-desc">Semua peserta dibekali dengan praktik memotret objek agar tampak menarik. Materi memotret produk ini penting untuk memikat konsumen.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="strategi-sosial-media-branding.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 6: Pelatihan Public Speaking STIKES -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-korporasi">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Public Speaking STIKes Karya Husada Kediri.webp" alt="Masterclass Public Speaking Korporasi" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Speaking</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-masterclass-public-speaking-korporasi.html">Pelatihan Public Speaking STIKes Karya Husada Kediri</a></h3>
+                <p class="ev-desc">Puluhan mahasiswa sarjana keperawatan Sekolah Tinggi Ilmu Kesehatan (STIKes) Karya Husada Kediri mengikuti pelatihan jurnalistik dan public speaking.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="dasar-public-speaking.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 7: LDK OSIS -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-sekolah">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Outbound MTSN 2 Kota Kediri.webp" alt="Siswa MTSN 2 Kota Kediri mengikuti outbound di Lapangan Sport Art Centre Ngronggo, kemarin. Mereka berhasil menyelesaikan sejumlah tantangan dalam berbagai permainan yang diikuti." class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Outbound</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-ldk-organisasi-kesiswaan.html">Program Outbound MTSN 2 Kota Kediri</a></h3>
+                <p class="ev-desc">Game Outbound SJT Bentuk Karakter Strategis, Siswa MTsN 2 Kota Kediri Taklukkan Semua Tantangan</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">Tuntas</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="ldk-kepemimpinan-pemuda.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 8: Pelatihan Desain dan Website -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-sekolah cat-kediri cat-edukasi">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Desain Website SMK AL Huda Kediri.webp" alt="Workshop Pelatihan Desain dan Website SMK Al Huda Kota Kediri" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Desain</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-workshop-desain-grafis-kreatif.html">Pelatihan Desain dan Website SMK AL Huda Kota Kediri</a></h3>
+                <p class="ev-desc">Puluhan siswa SMK Al Huda Kota Kediri mengikuti pelatihan di kantor Jawa Pos Radar Kediri kemarin. Mereka diberikan materi tentang desain dan pengelolaan website.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2025</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="desain-grafis-konten-kreator.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 9: Kompetisi Kompetensi Akademik KKA 2025 -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-sekolah cat-edukasi cat-jatim cat-kediri cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Final Kompetisi Kompetisi Akademik Radar Kediri KKA 2025.webp" alt="Final Kompetisi Kompetisi Akademik Radar Kediri (KKA) 2025" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Kompetisi Akademik</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-kepemimpinan-agile-manajer.html">Kompetisi Kompetensi Akademik 2025</a></h3>
+                <p class="ev-desc">Persaingan peserta dalam Grand Ginal Kompetisi Kompetensi Akademik (KKA) 2025 berlangsung ketat.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2025</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="kepemimpinan-agile-strategi.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 10: Pelatihan Website Sekolah -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-sekolah cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Website Sekolah SMAN 1 Pace.webp" alt="Pelatihan Website Sekolah SMAN 1 Pace Nganjuk" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Siber</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-keamanan-informasi-literasi-data.html">Pelatihan Mengelola Website Sekolah SMAN 1 Pace Nganjuk</a></h3>
+                <p class="ev-desc">Langsung Bisa Bikin Website Keren Pelatihan Jurnalistik dan Digital Marketing di SMAN 1 Pace.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="keamanan-informasi-literasi-data.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 11: Fotografi Jurnalistik -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-sekolah cat-edukasi cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Fotografi Jurnalistik MAN 2 Nganjuk 2026.webp" alt="Langsung Menulis Berita dan Memotret Safari Jurnalistik Ramadan di MAN 2 Nganjuk" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Fotografi</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-mastering-fotografi-jurnalistik.html">Pelatihan Fotografi Jurnalistik MAN 2 Nganjuk</a></h3>
+                <p class="ev-desc">Siswa Madrasah Aliyah Negeri (MAN) 2 Nganjuk belajar jurnalistik dan fotografi melalui Proghram Safari Jurnalistik Ramadan</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2026</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="mastering-fotografi-jurnalistik.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 12: Pelatihan Digital Marketing UMKM Nganjuk -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-umkm cat-pemerintahan cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Digital Marketing UMKM Kabupaten Nganjuk.webp" alt="GM jawa Pos Radar Kediri Chafid Suyuti didampingi Kepala Dinas Koperasi dan Usaha Mikro (Dinkop UM) Kabupaten Nganjuk Cuk Widiyanto membuka pelatihan digital marketing" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">UMKM</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-teknik-wawancara-media.html">Pelatihan Digital Marketing UMKM Kabupaten Nganjuk</a></h3>
+                <p class="ev-desc">Dinas Koperasi dan Usaha Mikro (Dinkop UM) Kabupaten Nganjuk bekerja sama dengan Jawa Pos Radar Nganjuk menggelar Pelatihan Digital Marketing untuk pelaku UMKM</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2025</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="teknik-wawancara-eksklusif.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 13: Radar Kediri Award 2025 PG Pesantren Baru -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-pemerintahan cat-korporasi cat-kediri">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Radar Kediri Award 2025 PG Pesantren Baru.webp" alt="PG Pesantren Baru Raih Penghargaan Radar Kediri Award 2025" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Radar Kediri Award</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-masterclass-mc-moderator-protokol.html">PG Pesantren Baru Raih Penghargaan Radar Kediri Award 2025</a></h3>
+                <p class="ev-desc">PG Pesantren Baru menerima penghargaan dengan kategori An Outstanding Institution in Good Governance for Sustainable Growth.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">2025</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="masterclass-mc-dan-moderator.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 14: Disdik Bekali Guru Prakarya dengan Digital Marketing -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-sekolah cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Digital Marketing Guru Prakarya Nganjuk.webp" alt="Disdik Nganjuk Bekali Guru Prakarya dengan Digital Marketing" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Digital Marketing</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-seo-content-writing-digital-bisnis.html">Pelatihan Digital Marketing Guru Prakarya Kabupaten Nganjuk</a></h3>
+                <p class="ev-desc">Puluhan guru di Kabupaten Nganjuk mengikuti Pengembangan Modul Ajar Musyawarah Guru Mata Pelajaran (MGMP) Prakarya tahun 2024/2025.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">Berhasil</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="seo-and-content-writing.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 15: Pelatihan Jurnalistik SMAN 1 Pace -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-sekolah cat-nganjuk">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Jurnalistik SMAN 1 Pace.webp" alt="Pelatihan Jurnalistik dan Digital Marketing SMAN 1 Pace Nganjuk" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Jurnalistik</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-serfitikasi-humas.html">Pelatihan Jurnalistik dan Digital Marketing SMAN 1 Pace</a></h3>
+                <p class="ev-desc">Sebanyak 45 pelajar SMAN 1 Pace antusias mengikuti pelatihan jurnalistik dan digital marketing bersama Jawa Pos Radar Kediri.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Radar Kediri Institute">
+                    <span>Radar Kediri Institute</span>
+                  </div>
+                  <div class="ev-price">Terpopuler</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="sertifikasi-humas-profesional.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 16: Pelatihan Digital Marketing Siswa PKBM Kediri -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-umkm cat-kediri">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/Pelatihan Digital Marketing Siswa PKBM Kediri.webp" alt="Pelatihan Digital Marketing Siswa PKBM Kabupaten Kediri" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Digital Marketing</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-serfitikasi-humas.html">Pelatihan Digital Marketing Siswa PKBM Kabupaten Kediri</a></h3>
+                <p class="ev-desc">Kepala Dinas Pendidikan dan GM Radar Kediri hadir langsung memantau pelatihan digital marketing bagi siswa PKBM Kabupaten Kediri.</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Dinas Pendidikan Kabupaten Kediri">
+                    <span>Dinas Pendidikan Kabupaten Kediri</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="sertifikasi-humas-profesional.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 17: Radar Kediri Awards 2024 -->
+          <div class="col-lg-4 col-md-6 ev-card-container cat-edukasi cat-umkm cat-kediri">
+            <article class="ev-card">
+              <div class="ev-card-image">
+                <img src="assets/img/event/RK Institute 2024.webp" alt="Radar Kediri Institute Jadi Media Kembangkan Local Genius" class="img-fluid" loading="lazy">
+                <div class="ev-type-badge">Litbang</div>
+              </div>
+              <div class="ev-card-body">
+                <h3 class="ev-title"><a href="event-serfitikasi-humas.html">RK Institute Jadi Media Kembangkan Local Genius</a></h3>
+                <p class="ev-desc">Diselenggarakan di Insumo Kediri Convention Center (IKCC), malam penganugerahan puluhan tokoh, perusahaan, dan lembaga itu sekaligus jadi momentum memperkenalkan lembaga semi-otonom baru di bawah Jawa Pos Radar Kediri. Yakni, Radar Kediri Institute (RK Institute).</p>
+                <div class="ev-footer">
+                  <div class="ev-instructor">
+                    <img src="assets/img/logo.webp" alt="Dinas Pendidikan Kabupaten Kediri">
+                    <span>Dinas Pendidikan Kabupaten Kediri</span>
+                  </div>
+                  <div class="ev-price">2024</div>
+                </div>
+                <div class="ev-actions">
+                  <a href="https://wa.me/6283198002246" class="ev-btn-primary">Pesan</a>
+                  <a href="sertifikasi-humas-profesional.html" class="ev-btn-ghost">Detail</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+        </div><!-- /#evGrid -->
+
+        <!-- Bottom Bar: Pagination + Newsletter -->
+        <div class="events-bottom-bar" data-aos="fade-up" data-aos-delay="350">
+          <nav aria-label="Events pagination">
+            <ul class="ev-pagination" id="paginationList">
+              <li id="prevPage" class="disabled"><a><i class="bi bi-chevron-left"></i></a></li>
+              <li id="nextPage"><a><i class="bi bi-chevron-right"></i></a></li>
+            </ul>
+          </nav>
+
+          <div class="ev-newsletter">
+            <div class="ev-newsletter-icon">
+              <i class="bi bi-envelope-paper"></i>
+            </div>
+            <p>Dapatkan update agenda pelatihan terbaru langsung di email Anda</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form ev-newsletter-form">
+              <input type="email" name="email" placeholder="Masukkan email Anda" required autocomplete="email">
+              <button type="submit">Kabari Saya</button>
+              <div class="loading">Memuat</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Terima kasih! Anda akan menerima update kami.</div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/logo.webp" alt="Logo RK Institute">
+          </a>
+          <div class="footer-contact pt-3">
+            <p><strong>Radar Kediri Institute</strong></p>
+            <p>Jl. Raya Gampeng No.45, Genengan, Sambiresik, Kec. Gampengrejo, Kabupaten Kediri, Jawa Timur 64182</p>
+            <p class="mt-3"><strong>Telepon:</strong> <span>(0354) 687123</span></p>
+            <p><strong>Email:</strong> <span>officialrkinstitute@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href="https://www.facebook.com/jawaposradarkediri/"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/radarkediri/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/c/RADARKEDIRITV"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tiktok.com/@radarkediritv"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Tautan Penting</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about.html">Tentang Kami</a></li>
+            <li><a href="service.html">Layanan</a></li>
+            <li><a href="terms.html">Ketentuan Layanan</a></li>
+            <li><a href="privacy.html">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Layanan Kami</h4>
+          <ul>
+            <li><a href="pelatihan-jurnalistik-investigasi.html">Jurnalistik</a></li>
+            <li><a href="layanan-pelatihan-digital-marketing.html">Digital Marketing</a></li>
+            <li><a href="layanan-pelatihan-coding-ai.html">Coding Ai</a></li>
+            <li><a href="jasa-press-release-publikasi.html">Press Release</a></li>
+            <li><a href="layanan-event-organizer.html">Event Organizer</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Kategori</h4>
+          <ul>
+            <li><a href="event.html?filter=korporasi">Corporate Training</a></li>
+            <li><a href="event.html?filter=sekolah">Program Sekolah</a></li>
+            <li><a href="event.html?filter=umkm">Workshop UMKM</a></li>
+            <li><a href="event.html?filter=edukasi">Edukasi</a></li>
+            <li><a href="event.html?filter=pemerintahan">Event Pemerintahan</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Mitra Media</h4>
+          <ul>
+            <li><a href="https://radarkediri.jawapos.com" target="_blank" rel="noopener">Radar Kediri</a></li>
+            <li><a href="https://rkomnibus.web.id" target="_blank" rel="noopener">RK Omnibus</a></li>
+            <li><a href="https://kedirievent.id" target="_blank" rel="noopener">Kediri Event</a></li>
+            <li><a href="https://www.kampunginggrispare.web.id" target="_blank" rel="noopener">Kampung Inggris Pare</a></li>
+            <li><a href="https://jawapos.com" target="_blank" rel="noopener">Jawa Pos Group</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>&copy; <span>Hak Cipta</span> <strong class="px-1 sitename">RK Institute</strong> <span>Seluruh Hak Dilindungi</span></p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/6283198002246" class="whatsapp-float d-flex align-items-center justify-content-center" target="_blank">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- Scroll To Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- ========== VENDOR JS ========== -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- ========== EVENT FILTER, SEARCH & PAGINATION ========== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var grid          = document.getElementById('evGrid');
+      var filterButtons = document.querySelectorAll('.filter-tag');
+      var searchInput   = document.getElementById('eventSearch');
+      var itemsPerPage  = 9;
+      var currentPage   = 1;
+      var filteredItems = [];
+
+      // Gunakan CSS Grid/Flexbox murni — TANPA Isotope
+      // Isotope sengaja tidak dipakai di halaman ini karena
+      // layoutMode 'fitRows' + pagination + display:none = selalu glitch
+      function getAllItems() {
+        return Array.from(document.querySelectorAll('.ev-card-container'));
+      }
+
+      function updateDisplay() {
+        var activeFilter = document.querySelector('.filter-tag.active').getAttribute('data-filter');
+        var searchText   = searchInput.value.toLowerCase().trim();
+        var allItems     = getAllItems();
+
+        // Filter
+        filteredItems = allItems.filter(function (item) {
+          var matchFilter = activeFilter === '*' || item.classList.contains(activeFilter.substring(1));
+          var titleEl     = item.querySelector('.ev-title');
+          var matchSearch = titleEl ? titleEl.innerText.toLowerCase().includes(searchText) : true;
+          return matchFilter && matchSearch;
+        });
+
+        // Pagination
+        var totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+        if (totalPages === 0) totalPages = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        var start = (currentPage - 1) * itemsPerPage;
+        var end   = start + itemsPerPage;
+
+        // Sembunyikan semua, tampilkan yang sesuai halaman
+        allItems.forEach(function (item) {
+          item.style.display = 'none';
+        });
+        filteredItems.slice(start, end).forEach(function (item) {
+          item.style.display = '';
+        });
+
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(total) {
+        var list = document.getElementById('paginationList');
+        var prev = document.getElementById('prevPage');
+        var next = document.getElementById('nextPage');
+
+        // Hapus nomor lama
+        list.querySelectorAll('.page-num').forEach(function (n) { n.remove(); });
+
+        // Render nomor halaman
+        for (var i = 1; i <= total; i++) {
+          var li         = document.createElement('li');
+          li.className   = 'page-num' + (i === currentPage ? ' active' : '');
+          li.innerHTML   = '<a>' + i + '</a>';
+          (function (pageNum) {
+            li.addEventListener('click', function () {
+              currentPage = pageNum;
+              updateDisplay();
+              window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+          })(i);
+          next.before(li);
+        }
+
+        prev.className = currentPage <= 1 ? 'disabled' : '';
+        next.className = (currentPage >= total || total === 0) ? 'disabled' : '';
+
+        prev.onclick = function () {
+          if (currentPage > 1) { currentPage--; updateDisplay(); window.scrollTo({ top: 400, behavior: 'smooth' }); }
+        };
+        next.onclick = function () {
+          if (currentPage < total) { currentPage++; updateDisplay(); window.scrollTo({ top: 400, behavior: 'smooth' }); }
+        };
+      }
+
+      // Filter tabs
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterButtons.forEach(function (b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          currentPage = 1;
+          updateDisplay();
+        });
+      });
+
+      // Search
+      searchInput.addEventListener('input', function () {
+        currentPage = 1;
+        updateDisplay();
+      });
+
+      // URL query filter on load (?filter=sekolah)
+      var urlParams = new URLSearchParams(window.location.search);
+      var urlFilter = urlParams.get('filter');
+      if (urlFilter) {
+        var targetBtn = document.querySelector('[data-filter=".cat-' + urlFilter + '"]');
+        if (targetBtn) {
+          filterButtons.forEach(function (b) { b.classList.remove('active'); });
+          targetBtn.classList.add('active');
+        }
+      }
+
+      updateDisplay();
+    });
+  </script>
+
+  <!-- ========== ACTIVE NAVBAR ========== -->
+  <script>
+    (function () {
+      var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      var navLinks    = document.querySelectorAll('#navmenu > ul > li > a');
+
+      var blogPages = [
+        'blog', 'artikel',
+        'cara-ampuh-mengatasi-gugup-sebelum-berbicara-depan-umum',
+        'dasar-public-speaking', 'desain-grafis-konten-kreator',
+        'gaya-kepemimpinan-agile', 'keamanan-informasi-literasi-data',
+        'kepemimpinan-agile-strategi', 'management-krisis-media',
+        'masterclass-mc-dan-moderator', 'memahami-segitiga-exposure',
+        'mengenal-kode-etik-jurmalistik', 'panduan-dasar-melindungi-data-privacy',
+        'pentingnya-uji-komptensi', 'rahasia-desain-media-sosial',
+        'strategi-sosial-media-branding', 'trend-digital-marketing-2026',
+        'pelatihan-jurnalistik-investigasi'
+      ];
+
+      var servicePages = [
+        'jurnalistik', 'digital-marketing', 'public-speaking',
+        'photography', 'videography', 'ldk', 'outbound',
+        'kelas-inspirasi', 'school-jurnalist-trip', 'diesnatalies',
+        'service-details'
+      ];
+
+      var portfolioPages = ['portfolio-details', 'project-details', 'projects'];
+      var pageBase       = currentPage.replace('.html', '');
+
+      navLinks.forEach(function (link) {
+        var href     = link.getAttribute('href');
+        if (!href) return;
+        var linkPage = href.split('?')[0].split('#')[0];
+
+        if (linkPage === currentPage) { link.classList.add('active'); return; }
+        if (href === 'blog.html'      && (pageBase.startsWith('blog')     || blogPages.includes(pageBase)))      { link.classList.add('active'); }
+        if (href === 'service.html'   && (pageBase.startsWith('layanan-') || servicePages.includes(pageBase)))   { link.classList.add('active'); }
+        if (href === 'portofolio.html' && portfolioPages.includes(pageBase))                                      { link.classList.add('active'); }
+      });
+
+      document.querySelectorAll('#navmenu .dropdown > a').forEach(function (parentLink) {
+        parentLink.closest('.dropdown').querySelectorAll('ul a').forEach(function (subLink) {
+          var subPage = (subLink.getAttribute('href') || '').split('?')[0].split('#')[0];
+          if (subPage === currentPage || currentPage.startsWith('event')) {
+            parentLink.classList.add('active');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- ========== NEWSLETTER AUTO-DISMISS ========== -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var newsletterForm = document.querySelector('.ev-newsletter-form');
+    if (!newsletterForm) return;
+
+    var sentMessage = newsletterForm.querySelector('.sent-message');
+
+    // Sembunyikan pesan sukses saat klik tombol apapun di halaman
+    document.addEventListener('click', function (e) {
+      if (!sentMessage) return;
+      if (sentMessage.style.display === 'block' || sentMessage.classList.contains('d-block')) {
+        // Jangan dismiss jika klik ada di dalam form newsletter itu sendiri
+        if (!newsletterForm.contains(e.target)) {
+          sentMessage.style.display = 'none';
+          sentMessage.classList.remove('d-block');
+        }
+      }
+    }, true); // useCapture: true agar tangkap semua klik sebelum bubbling
+
+    // Bonus: auto-dismiss otomatis setelah 3 detik
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (
+          sentMessage.style.display === 'block' ||
+          sentMessage.classList.contains('d-block')
+        ) {
+          clearTimeout(sentMessage._dismissTimer);
+          sentMessage._dismissTimer = setTimeout(function () {
+            sentMessage.style.display = 'none';
+            sentMessage.classList.remove('d-block');
+          }, 3000);
+        }
+      });
+    });
+
+    observer.observe(sentMessage, {
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+  });
+</script>
+
+</body>
+</html>
