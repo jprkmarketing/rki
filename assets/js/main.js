@@ -1,24 +1,14 @@
 (function() {
   "use strict";
-
-  /**
-   * Apply .scrolled class to the body as the page is scrolled down
-   */
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
     if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
     window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
-
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
-
-  /**
-   * Mobile nav toggle
-   */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
-
   function mobileNavToogle() {
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
@@ -27,22 +17,13 @@
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
   }
-
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active') && !navmenu.classList.contains('toggle-dropdown')) {
         mobileNavToogle();
       }
     });
-
   });
-
-  /**
-   * Toggle mobile nav dropdowns
-   */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
@@ -51,12 +32,7 @@
       e.stopImmediatePropagation();
     });
   });
-
-  /**
-   * Scroll top button
-   */
   let scrollTop = document.querySelector('.scroll-top');
-
   function toggleScrollTop() {
     if (scrollTop) {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
@@ -69,13 +45,8 @@
       behavior: 'smooth'
     });
   });
-
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
-
-  /**
-   * Animation on scroll function and init
-   */
   function aosInit() {
     AOS.init({
       duration: 600,
@@ -85,27 +56,14 @@
     });
   }
   window.addEventListener('load', aosInit);
-
-  /**
-   * Initiate Pure Counter
-   */
   new PureCounter();
-
-  /**
-   * Initiate glightbox
-   */
   const glightbox = GLightbox({
     selector: '.glightbox'
   });
-
-  /**
-   * Init isotope layout and filters
-   */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
@@ -115,7 +73,6 @@
         sortBy: sort
       });
     });
-
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
       filters.addEventListener('click', function() {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
@@ -128,18 +85,12 @@
         }
       }, false);
     });
-
   });
-
-  /**
-   * Init swiper sliders
-   */
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
-
       if (swiperElement.classList.contains("swiper-tab")) {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
@@ -147,21 +98,12 @@
       }
     });
   }
-
   window.addEventListener("load", initSwiper);
-
-  /**
-   * Frequently Asked Questions Toggle
-   */
   document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach((faqItem) => {
     faqItem.addEventListener('click', () => {
       faqItem.parentNode.classList.toggle('faq-active');
     });
   });
-
-  /**
-   * Correct scrolling position upon page load for URLs containing hash links.
-   */
   window.addEventListener('load', function(e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
@@ -176,12 +118,7 @@
       }
     }
   });
-
-  /**
-   * Navmenu Scrollspy
-   */
   let navmenulinks = document.querySelectorAll('.navmenu a');
-
   function navmenuScrollspy() {
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
@@ -198,57 +135,43 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
-
 })();
-
 document.addEventListener('DOMContentLoaded', function() {
   const isotopeContainer = document.querySelector('.isotope-container');
   let iso = new Isotope(isotopeContainer, {
     itemSelector: '.ev-card-container',
     layoutMode: 'fitRows'
   });
-
   const filterButtons = document.querySelectorAll('.filter-tag');
   const searchInput = document.getElementById('eventSearch');
   const dynamicTitle = document.getElementById('dynamicTitle');
-  
   const itemsPerPage = 9;
   let currentPage = 1;
   let filteredItems = [];
-
   function updateDisplay() {
     const activeFilterBtn = document.querySelector('.filter-tag.active');
     const activeFilter = activeFilterBtn.getAttribute('data-filter');
     const searchText = searchInput.value.toLowerCase();
-
-    // Update Judul Hero secara Dinamis
     if (activeFilter === '*') {
       dynamicTitle.innerText = "Semua Paket & Dokumentasi Event";
     } else {
       dynamicTitle.innerText = "Event Kategori " + activeFilterBtn.innerText;
     }
-
     const allItems = Array.from(document.querySelectorAll('.ev-card-container'));
-    
     filteredItems = allItems.filter(item => {
       const matchesFilter = activeFilter === '*' || item.classList.contains(activeFilter.substring(1));
       const matchesSearch = item.querySelector('.ev-title').innerText.toLowerCase().includes(searchText);
       return matchesFilter && matchesSearch;
     });
-
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
     if (currentPage > totalPages) currentPage = Math.max(1, totalPages);
-
     allItems.forEach(item => item.classList.add('hidden-by-page'));
     const start = (currentPage - 1) * itemsPerPage;
     const end = start + itemsPerPage;
     filteredItems.slice(start, end).forEach(item => item.classList.remove('hidden-by-page'));
-
     iso.arrange();
     renderPagination(totalPages);
   }
-
-  // Logika menangkap filter dari URL (?filter=umkm)
   function checkUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const filterParam = urlParams.get('filter');
@@ -261,9 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     updateDisplay();
   }
-
   searchInput.addEventListener('input', () => { currentPage = 1; updateDisplay(); });
-
   filterButtons.forEach(btn => {
     btn.addEventListener('click', function() {
       filterButtons.forEach(b => b.classList.remove('active'));
@@ -272,14 +193,12 @@ document.addEventListener('DOMContentLoaded', function() {
       updateDisplay();
     });
   });
-
   function renderPagination(total) {
     const list = document.getElementById('paginationList');
     const prev = document.getElementById('prevPage');
     const next = document.getElementById('nextPage');
     const oldNumbers = list.querySelectorAll('.page-num');
     oldNumbers.forEach(n => n.remove());
-
     for (let i = 1; i <= total; i++) {
       const li = document.createElement('li');
       li.className = `page-num ${i === currentPage ? 'active' : ''}`;
@@ -287,13 +206,10 @@ document.addEventListener('DOMContentLoaded', function() {
       li.onclick = () => { currentPage = i; updateDisplay(); window.scrollTo(0, 400); };
       next.before(li);
     }
-
     prev.className = currentPage === 1 ? 'disabled' : '';
     next.className = currentPage === total || total === 0 ? 'disabled' : '';
-    
     prev.onclick = () => { if(currentPage > 1) { currentPage--; updateDisplay(); }};
     next.onclick = () => { if(currentPage < total) { currentPage++; updateDisplay(); }};
   }
-
   checkUrlParams();
 });
