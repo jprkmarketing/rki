@@ -38,13 +38,15 @@
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
   function aosInit() {
@@ -137,7 +139,12 @@
   document.addEventListener('scroll', navmenuScrollspy);
 })();
 document.addEventListener('DOMContentLoaded', function() {
+  const isEventPage = document.body && document.body.classList.contains('event-page');
+  if (!isEventPage) return;
+
   const isotopeContainer = document.querySelector('.isotope-container');
+  if (!isotopeContainer || typeof Isotope === 'undefined') return;
+
   let iso = new Isotope(isotopeContainer, {
     itemSelector: '.ev-card-container',
     layoutMode: 'fitRows'
@@ -145,17 +152,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-tag');
   const searchInput = document.getElementById('eventSearch');
   const dynamicTitle = document.getElementById('dynamicTitle');
+  const paginationList = document.getElementById('paginationList');
+  const prevPage = document.getElementById('prevPage');
+  const nextPage = document.getElementById('nextPage');
+  if (!searchInput || !paginationList || !prevPage || !nextPage || filterButtons.length === 0) return;
+
   const itemsPerPage = 9;
   let currentPage = 1;
   let filteredItems = [];
   function updateDisplay() {
     const activeFilterBtn = document.querySelector('.filter-tag.active');
+    if (!activeFilterBtn) return;
     const activeFilter = activeFilterBtn.getAttribute('data-filter');
     const searchText = searchInput.value.toLowerCase();
     if (activeFilter === '*') {
-      dynamicTitle.innerText = "Semua Paket & Dokumentasi Event";
+      if (dynamicTitle) dynamicTitle.innerText = "Semua Paket & Dokumentasi Event";
     } else {
-      dynamicTitle.innerText = "Event Kategori " + activeFilterBtn.innerText;
+      if (dynamicTitle) dynamicTitle.innerText = "Event Kategori " + activeFilterBtn.innerText;
     }
     const allItems = Array.from(document.querySelectorAll('.ev-card-container'));
     filteredItems = allItems.filter(item => {
