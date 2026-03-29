@@ -64,49 +64,123 @@
   }
   window.addEventListener('load', aosInit);
 
-  new PureCounter();
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
+  if (typeof PureCounter !== 'undefined' && document.querySelector('.purecounter')) {
+    new PureCounter();
+  }
+
+  if (typeof GLightbox !== 'undefined' && document.querySelector('.glightbox')) {
+    GLightbox({
+      selector: '.glightbox'
+    });
+  }
+
+  if (typeof imagesLoaded !== 'undefined' && typeof Isotope !== 'undefined') {
+    document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+      let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+      let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+      let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+      let initIsotope;
+      imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+        initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+          itemSelector: '.isotope-item',
+          layoutMode: layout,
+          filter: filter,
+          sortBy: sort
+        });
+      });
+      isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+        filters.addEventListener('click', function() {
+          isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+          this.classList.add('filter-active');
+          if (initIsotope) {
+            initIsotope.arrange({
+              filter: this.getAttribute('data-filter')
+            });
+          }
+          if (typeof AOS !== 'undefined' && typeof AOS.refresh === 'function') {
+            AOS.refresh();
+          }
+        }, false);
       });
     });
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof AOS !== 'undefined' && typeof AOS.refresh === 'function') {
-          AOS.refresh();
-        }
-      }, false);
+  }
+
+  function loadScriptOnce(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = src;
+      script.defer = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
+      document.body.appendChild(script);
     });
-  });
+  }
+
   function initSwiper() {
+    if (typeof Swiper === 'undefined') return;
     document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-      if (swiperElement.classList.contains("swiper-tab")) {
+      if (swiperElement.dataset.swiperInitialized === 'true') return;
+      const configElement = swiperElement.querySelector(".swiper-config");
+      if (!configElement) return;
+      let config = {};
+      try {
+        config = JSON.parse(configElement.innerHTML.trim());
+      } catch (error) {
+        return;
+      }
+      if (swiperElement.classList.contains("swiper-tab") && typeof initSwiperWithCustomPagination === 'function') {
         initSwiperWithCustomPagination(swiperElement, config);
       } else {
         new Swiper(swiperElement, config);
       }
+      swiperElement.dataset.swiperInitialized = 'true';
     });
   }
-  window.addEventListener("load", initSwiper);
+
+  function initSwiperLazy() {
+    const swiperTargets = document.querySelectorAll('.init-swiper');
+    if (swiperTargets.length === 0) return;
+
+    const startSwiper = () => {
+      if (typeof Swiper !== 'undefined') {
+        initSwiper();
+        return;
+      }
+      loadScriptOnce('assets/vendor/swiper/swiper-bundle.min.js?v=20260323')
+        .then(() => initSwiper())
+        .catch(() => {});
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      startSwiper();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const hasVisibleTarget = entries.some((entry) => entry.isIntersecting);
+      if (!hasVisibleTarget) return;
+      observer.disconnect();
+      startSwiper();
+    }, {
+      rootMargin: '300px 0px'
+    });
+
+    swiperTargets.forEach((target) => observer.observe(target));
+  }
+
+  window.addEventListener("load", () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(initSwiperLazy, {
+        timeout: 2000
+      });
+    } else {
+      setTimeout(initSwiperLazy, 500);
+    }
+  });
   document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach((faqItem) => {
     faqItem.addEventListener('click', () => {
       faqItem.parentNode.classList.toggle('faq-active');
