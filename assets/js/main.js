@@ -200,9 +200,8 @@
   }
 
   function initPortfolioFeaturesLazy() {
-    const portfolioSection = document.querySelector('#portfolio');
-    const needsPortfolioScripts = document.querySelector('.isotope-layout') || document.querySelector('.glightbox');
-    if (!portfolioSection || !needsPortfolioScripts) return;
+    const portfolioTrigger = document.querySelector('.isotope-layout, .glightbox');
+    if (!portfolioTrigger) return;
 
     const startPortfolioFeatures = () => {
       const tasks = [];
@@ -241,7 +240,7 @@
       rootMargin: '300px 0px'
     });
 
-    observer.observe(portfolioSection);
+    observer.observe(portfolioTrigger);
   }
 
   window.addEventListener("load", () => {
