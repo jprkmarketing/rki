@@ -118,9 +118,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"></noscript>
 
-  <!-- Critical CSS: Bootstrap + Main -->
-  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323">
-  <link rel="stylesheet" href="assets/css/main.css?v=20260323">
+  <!-- Critical CSS: Bootstrap + Main (non-blocking) -->
+  <link rel="preload" as="style" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323">
+  <link rel="preload" as="style" href="assets/css/main.css?v=20260323">
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="assets/css/main.css?v=20260323" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260323">
+  </noscript>
 
   <!-- Non-critical CSS: load async -->
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=20260323" media="print" onload="this.media='all'">
@@ -173,6 +179,62 @@
         contain-intrinsic-size: 1px 1200px;
       }
     }
+
+    /* Performance + Accessibility overrides (homepage) */
+    .hero .hero-showcase .stats-overlay .stat-card .stat-text { color: #f3f8ff; }
+    .about .highlight-points .point-item .point-number { color: #f1c232; }
+    .about .counter-box p,
+    .offerings .offering-block p,
+    .showcase-card .card-info p,
+    .testimonial-item h3,
+    .contact .reach-card p { color: #e8f1fb !important; }
+    .offerings .explore-btn { color: #0a2a47; }
+
+    .swiper-pagination-bullet { width: 14px; height: 14px; margin: 0 8px !important; }
+    .swiper-pagination-clickable .swiper-pagination-bullet { min-width: 14px; min-height: 14px; }
+
+    .experience-badge .experience-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--contrast-color);
+    }
+    .offering-body .offering-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0 0 .75rem;
+      color: var(--heading-color);
+    }
+    .offering-body .offering-title a { color: var(--heading-color); }
+    .offering-body .offering-title a:hover { color: var(--accent-color); }
+    .highlight-box .highlight-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 1rem 0 .5rem;
+      color: var(--heading-color);
+    }
+    .careers-banner .careers-heading {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 0 .75rem;
+      color: var(--heading-color);
+    }
+    .footer .footer-links .footer-heading {
+      font-size: 16px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 12px;
+      margin-bottom: 0;
+      color: var(--heading-color);
+    }
+    .btn-contact,
+    .action-btn,
+    .whatsapp-float,
+    .scroll-top {
+      min-width: 44px;
+      min-height: 44px;
+    }
   </style>
 </head>
 
@@ -183,7 +245,7 @@
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <img src="assets/img/logo.webp" alt="Logo RK Institute" width="40" height="40" decoding="sync">
+        <img src="assets/img/favicon.png" alt="Logo RK Institute" width="40" height="40" decoding="async">
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -295,19 +357,19 @@
                 <div class="point-item">
                   <span class="point-number">01</span>
                   <div class="point-text">
-                    <h5>Kurikulum berbasis praktik langsung dari praktisi media dan industri.</h5>
+                    <p class="h5 mb-0">Kurikulum berbasis praktik langsung dari praktisi media dan industri.</p>
                   </div>
                 </div>
                 <div class="point-item">
                   <span class="point-number">02</span>
                   <div class="point-text">
-                    <h5>Jejaring luas di bawah naungan Jawa Pos Radar Kediri.</h5>
+                    <p class="h5 mb-0">Jejaring luas di bawah naungan Jawa Pos Radar Kediri.</p>
                   </div>
                 </div>
                 <div class="point-item">
                   <span class="point-number">03</span>
                   <div class="point-text">
-                    <h5>Fasilitas ruang belajar yang representatif dan mendukung kreativitas.</h5>
+                    <p class="h5 mb-0">Fasilitas ruang belajar yang representatif dan mendukung kreativitas.</p>
                   </div>
                 </div>
               </div>
@@ -330,7 +392,7 @@
                   </div>
                   <div class="experience-badge">
                     <i class="bi bi-award-fill"></i>
-                    <h4>26 Tahun</h4>
+                    <p class="experience-title">26 Tahun</p>
                     <span>Jawa Pos Radar Kediri</span>
                   </div>
                 </div>
@@ -390,7 +452,7 @@
               <div class="offering-icon-wrap"><i class="bi bi-palette"></i></div>
               <div class="offering-body">
                 <div class="offering-header">
-                  <h4><a href="pelatihan-jurnalistik-investigasi.html">Pelatihan Jurnalistik</a></h4>
+                  <p class="offering-title"><a href="pelatihan-jurnalistik-investigasi.html">Pelatihan Jurnalistik</a></p>
                   <span class="featured-tag">Populer</span>
                 </div>
                 <p>Workshop dan pelatihan kejurnalistikan untuk siswa, mahasiswa, dan staf. Meliputi reportase, penulisan berita, fotografi, videografi, hingga pengelolaan website media.</p>
@@ -404,7 +466,7 @@
               <div class="offering-indicator"></div>
               <div class="offering-icon-wrap"><i class="bi bi-layout-text-window-reverse"></i></div>
               <div class="offering-body">
-                <h4><a href="layanan-pelatihan-digital-marketing.html">Digital Marketing Training</a></h4>
+                <p class="offering-title"><a href="layanan-pelatihan-digital-marketing.html">Digital Marketing Training</a></p>
                 <p>Pelatihan strategi pemasaran digital mendalam: desain grafis, fotografi produk, content creator, dan branding digital — untuk siswa, guru, maupun karyawan perusahaan.</p>
                 <a href="layanan-pelatihan-digital-marketing.html" class="explore-btn">Lihat Detail <i class="bi bi-chevron-right"></i></a>
               </div>
@@ -416,7 +478,7 @@
               <div class="offering-indicator"></div>
               <div class="offering-icon-wrap"><i class="bi bi-mic"></i></div>
               <div class="offering-body">
-                <h4><a href="pelatihan-public-speaking.html">Public Speaking & Motivasi</a></h4>
+                <p class="offering-title"><a href="pelatihan-public-speaking.html">Public Speaking & Motivasi</a></p>
                 <p>Program kelas inspirasi dan Achievement Motivation Training (AMT) menghadirkan tokoh sukses, motivator berpengalaman, dan pemimpin untuk membangun karakter serta produktivitas.</p>
                 <a href="pelatihan-public-speaking.html" class="explore-btn">Lihat Detail <i class="bi bi-chevron-right"></i></a>
               </div>
@@ -428,7 +490,7 @@
               <div class="offering-indicator"></div>
               <div class="offering-icon-wrap"><i class="bi bi-megaphone"></i></div>
               <div class="offering-body">
-                <h4><a href="layanan-event-organizer.html">Manajemen Event</a></h4>
+                <p class="offering-title"><a href="layanan-event-organizer.html">Manajemen Event</a></p>
                 <p>Layanan Event Organizer profesional untuk Dies Natalis/Milad, LDKS Camp, Outbound, Pemilu OSIS, hingga acara institusi pemerintah dan perusahaan.</p>
                 <a href="layanan-event-organizer.html" class="explore-btn">Lihat Detail <i class="bi bi-chevron-right"></i></a>
               </div>
@@ -440,7 +502,7 @@
               <div class="offering-indicator"></div>
               <div class="offering-icon-wrap"><i class="bi bi-code-slash"></i></div>
               <div class="offering-body">
-                <h4><a href="layanan-pelatihan-coding-ai.html">Coding & AI untuk Pelajar</a></h4>
+                <p class="offering-title"><a href="layanan-pelatihan-coding-ai.html">Coding & AI untuk Pelajar</a></p>
                 <p>Pelatihan inovasi digital kreatif — dasar pemrograman dan konsep Artificial Intelligence (AI) untuk siswa SD/MI hingga SMP/MTs agar siap menghadapi era teknologi.</p>
                 <a href="layanan-pelatihan-coding-ai.html" class="explore-btn">Lihat Detail <i class="bi bi-chevron-right"></i></a>
               </div>
@@ -452,7 +514,7 @@
               <div class="offering-indicator"></div>
               <div class="offering-icon-wrap"><i class="bi bi-search"></i></div>
               <div class="offering-body">
-                <h4><a href="jasa-press-release-publikasi.html">Press Release & Publikasi</a></h4>
+                <p class="offering-title"><a href="jasa-press-release-publikasi.html">Press Release & Publikasi</a></p>
                 <p>Layanan publikasi kegiatan institusi Anda di media cetak dan media sosial Jawa Pos Radar Kediri — terverifikasi Dewan Pers untuk branding yang akuntabel dan efektif.</p>
                 <a href="jasa-press-release-publikasi.html" class="explore-btn">Lihat Detail <i class="bi bi-chevron-right"></i></a>
               </div>
@@ -513,8 +575,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/pelatihan-digital-marketing-smk-01.webp" alt="pelatihan digital marketing smk bersama radar kediri institute" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/pelatihan-digital-marketing-smk-01.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="pelatihan-digital-marketing.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/pelatihan-digital-marketing-smk-01.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="pelatihan-digital-marketing.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -541,8 +603,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/pelatihan-jurnalistik-rk-institute-01.webp" alt="Pelatihan Jurnalistik bersama Wartawan Jawa Pos Radar Kediri" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/pelatihan-jurnalistik-rk-institute-01.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="student-journalist-trip.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/pelatihan-jurnalistik-rk-institute-01.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="student-journalist-trip.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -569,8 +631,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Event-Wisuda-Kampus.webp" alt="Layanan Event Organizer wisuda profesional bersama Radar Kediri Institute" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Event-Wisuda-Kampus.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="event-wisuda-sekolah-kampus.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Event-Wisuda-Kampus.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="event-wisuda-sekolah-kampus.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -597,8 +659,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/KKA-Radar-Kediri.webp" alt="Ajang bergengsi untuk mengukur dan mengapresiasi kompetensi akademik siswa antar sekolah" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/KKA-Radar-Kediri.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="kka.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/KKA-Radar-Kediri.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="kka.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -625,8 +687,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/kelas-inspirasi-radar-kediri-institute-01.webp" alt="Kelas Inspirasi Radar Kediri Institute menghadirkan Narasumber Bupati Kediri yaitu Mas Dhito" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/kelas-inspirasi-radar-kediri-institute-01.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="kelas-inspirasi-character-building.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/kelas-inspirasi-radar-kediri-institute-01.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="kelas-inspirasi-character-building.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -653,8 +715,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/pelatihan-jurnalistik-kids-radar-kediri-institute-01.webp" alt="Siswa-Siswi MTS mengikuti pelatihan jurnalistik bersama team Radar Kediri" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/pelatihan-jurnalistik-kids-radar-kediri-institute-01.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="journalist-kids-experience.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/pelatihan-jurnalistik-kids-radar-kediri-institute-01.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="journalist-kids-experience.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -681,8 +743,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/dies-natalies-bintang-tamu-niken-salindri.webp" alt="Panggung megah dengan backdrop Dies Natalis, confetti, lampu sorot, dengan bintang tamu Niken Salindri" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/dies-natalies-bintang-tamu-niken-salindri.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="gebyar-dies-natalis-milad-sekolah.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/dies-natalies-bintang-tamu-niken-salindri.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="gebyar-dies-natalis-milad-sekolah.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -709,8 +771,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Outbound-Team-Building-RK-Institute.webp" alt="Peserta outbound di alam terbuka, bermain games tim" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Outbound-Team-Building-RK-Institute.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="outbound-team-building.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Outbound-Team-Building-RK-Institute.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="outbound-team-building.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -737,8 +799,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Pelatihan-Jurnalistik-Pemerintahan-RK-Institute.webp" alt="Pelatihan Jurnalistik Pemerintahan bersama Tim Jawa Pos Radar Kediri" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Pelatihan-Jurnalistik-Pemerintahan-RK-Institute.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="politics-government-studies.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Pelatihan-Jurnalistik-Pemerintahan-RK-Institute.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="politics-government-studies.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -765,8 +827,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Pelatihan-website-berbasis-ai.webp" alt="Pelatihan Pembuatan Website berbasis AI dan Coding sederhana" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Pelatihan-website-berbasis-ai.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="pelatihan-website-coding-ai.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Pelatihan-website-berbasis-ai.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="pelatihan-website-coding-ai.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -793,8 +855,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Pelatihan-Jurnalistik-Sekolah-RK-Institute.webp" alt="Pelatihan Jurnalistik bersama Mahasiswa" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Pelatihan-Jurnalistik-Sekolah-RK-Institute.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="pengelolaan-media-sekolah.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Pelatihan-Jurnalistik-Sekolah-RK-Institute.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="pengelolaan-media-sekolah.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -821,8 +883,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Simulasi-Pemilihan-OSIS.webp" alt="Simulasi Pemilihan OSIS" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Simulasi-Pemilihan-OSIS.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="pemilu-osis-demokrasi-pelajar.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Simulasi-Pemilihan-OSIS.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="pemilu-osis-demokrasi-pelajar.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -849,8 +911,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Program-LDKS-RK-Institute.webp" alt="Program LDKS Radar Kediri Institute" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Program-LDKS-RK-Institute.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="ldks-camp.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Program-LDKS-RK-Institute.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="ldks-camp.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -877,8 +939,8 @@
                     <div class="card-thumbnail">
                       <img src="assets/img/galeri/Kelas-Parenting-Radar-Kediri-Institute.webp" alt="Kelas Parenting Radar Kediri Institute" class="img-fluid" width="400" height="300" loading="lazy" fetchpriority="low" decoding="async">
                       <div class="overlay-actions">
-                        <a href="assets/img/galeri/Kelas-Parenting-Radar-Kediri-Institute.webp" class="glightbox action-link"><i class="bi bi-fullscreen"></i></a>
-                        <a href="parenting-program.html" class="action-link"><i class="bi bi-link-45deg"></i></a>
+                        <a href="assets/img/galeri/Kelas-Parenting-Radar-Kediri-Institute.webp" class="glightbox action-link" aria-label="Lihat gambar kegiatan ukuran penuh"><i class="bi bi-fullscreen"></i></a>
+                        <a href="parenting-program.html" class="action-link" aria-label="Lihat detail kegiatan"><i class="bi bi-link-45deg"></i></a>
                       </div>
                     </div>
                   </div>
@@ -936,28 +998,28 @@
                 <div class="check-item">
                   <i class="bi bi-arrow-right-circle-fill"></i>
                   <div>
-                    <h5>Terverifikasi Dewan Pers</h5>
+                    <p class="h5 mb-0">Terverifikasi Dewan Pers</p>
                     <p>Semua publikasi kegiatan dilakukan melalui Jawa Pos Radar Kediri yang berbadan hukum dan terverifikasi resmi oleh Dewan Pers — menjamin akuntabilitas anggaran branding Anda.</p>
                   </div>
                 </div>
                 <div class="check-item">
                   <i class="bi bi-arrow-right-circle-fill"></i>
                   <div>
-                    <h5>Narasumber Ahli & Jaringan Luas</h5>
+                    <p class="h5 mb-0">Narasumber Ahli & Jaringan Luas</p>
                     <p>Narasumber kami adalah praktisi nyata: jurnalis senior, pejabat pemerintahan, pengusaha sukses, dan pakar teknologi digital.</p>
                   </div>
                 </div>
                 <div class="check-item">
                   <i class="bi bi-arrow-right-circle-fill"></i>
                   <div>
-                    <h5>Program Terintegrasi & Fleksibel</h5>
+                    <p class="h5 mb-0">Program Terintegrasi & Fleksibel</p>
                     <p>Setiap program dirancang khusus sesuai kebutuhan institusi — bisa satu hari, multi-sesi, atau program tahunan berkesinambungan.</p>
                   </div>
                 </div>
                 <div class="check-item">
                   <i class="bi bi-arrow-right-circle-fill"></i>
                   <div>
-                    <h5>Publikasi Otomatis di Media Massa</h5>
+                    <p class="h5 mb-0">Publikasi Otomatis di Media Massa</p>
                     <p>Setiap kegiatan yang bermitra dengan kami mendapat liputan dan publikasi di media cetak serta media sosial Jawa Pos Radar Kediri.</p>
                   </div>
                 </div>
@@ -988,7 +1050,7 @@
                   <span class="counter-unit">% Kepuasan Peserta</span>
                 </div>
               </div>
-              <h4>Penguasaan Kreatif</h4>
+              <p class="highlight-title">Penguasaan Kreatif</p>
               <p>Mendorong setiap individu untuk menghasilkan karya kreatif melalui bimbingan intensif dan praktis.</p>
             </div>
           </div>
@@ -1002,7 +1064,7 @@
                   <span class="counter-unit">% Dampak Kompetensi</span>
                 </div>
               </div>
-              <h4>Dampak Terukur</h4>
+              <p class="highlight-title">Dampak Terukur</p>
               <p>Program kami didesain untuk memberikan peningkatan keahlian yang nyata bagi perkembangan karier dan bisnis.</p>
             </div>
           </div>
@@ -1016,7 +1078,7 @@
                   <span class="counter-unit">+ Mitra Instansi</span>
                 </div>
               </div>
-              <h4>Tenaga Ahli Profesional</h4>
+              <p class="highlight-title">Tenaga Ahli Profesional</p>
               <p>Didukung oleh instruktur berkompeten dengan jam terbang tinggi di bidang jurnalistik, digital, dan manajemen.</p>
             </div>
           </div>
@@ -1056,7 +1118,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/person/person-m-9.webp" class="testimonial-img" alt="Budi Santoso" width="80" height="80" loading="lazy" fetchpriority="low" decoding="async">
                   <h3>Budi Santoso</h3>
-                  <h4>Staf Humas Pemda</h4>
+                  <p>Staf Humas Pemda</p>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
@@ -1074,7 +1136,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/person/person-f-5.webp" class="testimonial-img" alt="Siska Amelia" width="80" height="80" loading="lazy" fetchpriority="low" decoding="async">
                   <h3>Siska Amelia</h3>
-                  <h4>Pengusaha UMKM</h4>
+                  <p>Pengusaha UMKM</p>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
@@ -1092,7 +1154,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/person/person-f-12.webp" class="testimonial-img" alt="Dewi Lestari" width="80" height="80" loading="lazy" fetchpriority="low" decoding="async">
                   <h3>Dewi Lestari</h3>
-                  <h4>Guru SMK</h4>
+                  <p>Guru SMK</p>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
@@ -1110,7 +1172,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/person/person-m-12.webp" class="testimonial-img" alt="Ahmad Fauzi" width="80" height="80" loading="lazy" fetchpriority="low" decoding="async">
                   <h3>Ahmad Fauzi</h3>
-                  <h4>Content Creator</h4>
+                  <p>Content Creator</p>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
@@ -1128,7 +1190,7 @@
                 <div class="testimonial-item">
                   <img src="assets/img/person/person-m-13.webp" class="testimonial-img" alt="Eko Prasetyo" width="80" height="80" loading="lazy" fetchpriority="low" decoding="async">
                   <h3>Eko Prasetyo</h3>
-                  <h4>Wirausaha</h4>
+                  <p>Wirausaha</p>
                   <div class="stars">
                     <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                   </div>
@@ -1192,7 +1254,7 @@
                 </div>
               </div>
               <div class="member-details">
-                <h5>Shinta Nurma Ababil</h5>
+                <p class="h5 mb-0">Shinta Nurma Ababil</p>
                 <span>Editor Jawa Pos Radar Kediri</span>
               </div>
             </div>
@@ -1208,7 +1270,7 @@
                 </div>
               </div>
               <div class="member-details">
-                <h5>Heri Muda Setiawan</h5>
+                <p class="h5 mb-0">Heri Muda Setiawan</p>
                 <span>Manager Pemasaran JPRK</span>
               </div>
             </div>
@@ -1224,7 +1286,7 @@
                 </div>
               </div>
               <div class="member-details">
-                <h5>Ayu Isma</h5>
+                <p class="h5 mb-0">Ayu Isma</p>
                 <span>Wartawan JPRK</span>
               </div>
             </div>
@@ -1240,7 +1302,7 @@
                 </div>
               </div>
               <div class="member-details">
-                <h5>Endro Purwito</h5>
+                <p class="h5 mb-0">Endro Purwito</p>
                 <span>Wartawan Senior Jawa Pos</span>
               </div>
             </div>
@@ -1251,7 +1313,7 @@
         <div class="row mt-5">
           <div class="col-12">
             <div class="leaders-section" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="leaders-heading">Dewan Eksekutif</h4>
+              <p class="leaders-heading">Dewan Eksekutif</p>
 
               <div class="leaders-carousel swiper init-swiper">
                 <script type="application/json" class="swiper-config">
@@ -1279,7 +1341,7 @@
                         <div class="col-sm-7">
                           <div class="panel-info">
                             <span class="role-tag">Direktur Utama</span>
-                            <h5>Kurniawan Muhammad</h5>
+                            <p class="h5 mb-0">Kurniawan Muhammad</p>
                             <p>Memimpin arah strategis organisasi dengan pengalaman lebih dari dua dekade di industri media.</p>
                             <div class="panel-socials">
                               <a href="mailto:officialrkinstitute@gmail.com" aria-label="Email RK Institute"><i class="bi bi-envelope"></i></a>
@@ -1302,7 +1364,7 @@
                         <div class="col-sm-7">
                           <div class="panel-info">
                             <span class="role-tag">General Manager</span>
-                            <h5>Chafid Suyuti</h5>
+                            <p class="h5 mb-0">Chafid Suyuti</p>
                             <p>Berfokus pada pengembangan modul pelatihan kreatif dan transformasi digital bagi institusi.</p>
                             <div class="panel-socials">
                               <a href="mailto:officialrkinstitute@gmail.com" aria-label="Email RK Institute"><i class="bi bi-envelope"></i></a>
@@ -1325,7 +1387,7 @@
                         <div class="col-sm-7">
                           <div class="panel-info">
                             <span class="role-tag">Pemimpin Redaksi</span>
-                            <h5>Mahfud</h5>
+                            <p class="h5 mb-0">Mahfud</p>
                             <p>Mengelola ekosistem operasional dan kemitraan strategis dengan berbagai instansi nasional.</p>
                             <div class="panel-socials">
                               <a href="mailto:officialrkinstitute@gmail.com" aria-label="Email RK Institute"><i class="bi bi-envelope"></i></a>
@@ -1348,7 +1410,7 @@
                         <div class="col-sm-7">
                           <div class="panel-info">
                             <span class="role-tag">Manager SDM</span>
-                            <h5>M. Arif Hanafi</h5>
+                            <p class="h5 mb-0">M. Arif Hanafi</p>
                             <p>Mengembangkan jangkauan program RK Institute untuk mencetak alumni berkompetensi tinggi.</p>
                             <div class="panel-socials">
                               <a href="mailto:officialrkinstitute@gmail.com" aria-label="Email RK Institute"><i class="bi bi-envelope"></i></a>
@@ -1375,7 +1437,7 @@
                 <div class="col-md-7">
                   <div class="banner-text">
                     <div class="banner-badge"><i class="bi bi-stars"></i> Karir</div>
-                    <h4>Bentuk Masa Depan Bersama Kami</h4>
+                    <p class="careers-heading">Bentuk Masa Depan Bersama Kami</p>
                     <p>Jadikan institusi Anda lebih unggul, lebih dikenal, dan lebih berdampak melalui program kolaborasi bersama Radar Kediri Institute.</p>
                   </div>
                 </div>
@@ -1407,7 +1469,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-delay="150">
             <div class="reach-card">
               <div class="reach-icon-wrap"><i class="bi bi-envelope-at"></i></div>
-              <h5>Kirim Email</h5>
+              <p class="h5 mb-0">Kirim Email</p>
               <p>officialrkinstitute@gmail.com</p>
               <span class="reach-note">Respon dalam 3-5 jam kerja</span>
             </div>
@@ -1416,7 +1478,7 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-delay="250">
             <div class="reach-card">
               <div class="reach-icon-wrap"><i class="bi bi-telephone"></i></div>
-              <h5>Hubungi Kami</h5>
+              <p class="h5 mb-0">Hubungi Kami</p>
               <p>+6283198002246</p>
               <span class="reach-note">Hari Kerja 08.00 - 17.00 WIB</span>
             </div>
@@ -1425,7 +1487,7 @@
           <div class="col-lg-4 col-md-12" data-aos="fade-down" data-aos-delay="350">
             <div class="reach-card">
               <div class="reach-icon-wrap"><i class="bi bi-geo-alt"></i></div>
-              <h5>Kunjungi Kantor</h5>
+              <p class="h5 mb-0">Kunjungi Kantor</p>
               <p>Jl. Raya Gampeng No.45, Genengan, Sambiresik, Kec. Gampengrejo, Kabupaten Kediri, Jawa Timur 64182</p>
               <span class="reach-note">Gedung Radar Kediri</span>
             </div>
@@ -1532,7 +1594,7 @@
               <div class="contact-box">
                 <h3><i class="bi bi-headset"></i> Butuh Bantuan?</h3>
                 <p>Tim admin kami siap membantu Anda memilih program pelatihan yang paling sesuai dengan kebutuhan Anda.</p>
-                <a href="https://wa.me/6283198002246" class="btn-contact" target="_blank" rel="noopener noreferrer">Hubungi Layanan Dukungan</a>
+                <a href="https://wa.me/6283198002246" class="btn-contact" target="_blank" rel="noopener noreferrer" aria-label="Hubungi dukungan RK Institute via WhatsApp">Hubungi Layanan Dukungan</a>
               </div>
             </div>
           </div>
@@ -1613,7 +1675,7 @@
 
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.webp" alt="Logo RK Institute" width="40" height="40" decoding="sync">
+            <img src="assets/img/favicon.png" alt="Logo RK Institute" width="40" height="40" decoding="async">
           </a>
           <div class="footer-contact pt-3">
             <p><strong>Radar Kediri Institute</strong></p>
@@ -1622,15 +1684,15 @@
             <p><strong>Email:</strong> <span>officialrkinstitute@gmail.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
-            <a href="https://www.facebook.com/jawaposradarkediri/"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/radarkediri/"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.youtube.com/c/RADARKEDIRITV"><i class="bi bi-youtube"></i></a>
-            <a href="https://www.tiktok.com/@radarkediritv"><i class="bi bi-tiktok"></i></a>
+            <a href="https://www.facebook.com/jawaposradarkediri/" aria-label="Facebook Radar Kediri"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/radarkediri/" aria-label="Instagram Radar Kediri"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/c/RADARKEDIRITV" aria-label="YouTube Radar Kediri TV"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.tiktok.com/@radarkediritv" aria-label="TikTok Radar Kediri TV"><i class="bi bi-tiktok"></i></a>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Tautan Penting</h4>
+          <p class="footer-heading">Tautan Penting</p>
           <ul>
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about.html">Tentang Kami</a></li>
@@ -1641,7 +1703,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Layanan Kami</h4>
+          <p class="footer-heading">Layanan Kami</p>
           <ul>
             <li><a href="pelatihan-jurnalistik-investigasi.html">Jurnalistik</a></li>
             <li><a href="layanan-pelatihan-digital-marketing.html">Digital Marketing</a></li>
@@ -1652,7 +1714,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Kategori</h4>
+          <p class="footer-heading">Kategori</p>
           <ul>
             <li><a href="event.html?filter=korporasi">Corporate Training</a></li>
             <li><a href="event.html?filter=sekolah">Program Sekolah</a></li>
@@ -1663,7 +1725,7 @@
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Mitra Media</h4>
+          <p class="footer-heading">Mitra Media</p>
           <ul>
             <li><a href="https://radarkediri.jawapos.com" target="_blank" rel="noopener">Radar Kediri</a></li>
             <li><a href="https://rkomnibus.web.id" target="_blank" rel="noopener">RK Omnibus</a></li>
@@ -1682,12 +1744,12 @@
   </footer>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/6283198002246" class="whatsapp-float d-flex align-items-center justify-content-center" target="_blank">
+  <a href="https://wa.me/6283198002246" class="whatsapp-float d-flex align-items-center justify-content-center" target="_blank" rel="noopener noreferrer" aria-label="Chat WhatsApp RK Institute">
     <i class="bi bi-whatsapp"></i>
   </a>
 
   <!-- Scroll To Top -->
-  <a href="#header" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+  <a href="#header" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Kembali ke atas">
     <i class="bi bi-arrow-up-short"></i>
   </a>
 
@@ -1699,7 +1761,6 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js?v=20260323" defer></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js?v=20260323" defer></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js?v=20260323" defer></script>
 
   <!-- Main JS -->
   <script src="assets/js/main.js?v=20260323" defer></script>
