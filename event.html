@@ -62,8 +62,6 @@
   <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323">
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=20260323" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=20260323"></noscript>
   <link rel="stylesheet" href="assets/vendor/aos/aos.css?v=20260323" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/vendor/aos/aos.css?v=20260323"></noscript>
-  <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css?v=20260323" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css?v=20260323"></noscript>
-  <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css?v=20260323" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css?v=20260323"></noscript>
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/main.css?v=20260323">
@@ -657,15 +655,12 @@
 
           <div class="ev-newsletter">
             <div class="ev-newsletter-icon">
-              <i class="bi bi-envelope-paper"></i>
+              <i class="bi bi-whatsapp"></i>
             </div>
-            <p>Dapatkan update agenda pelatihan terbaru langsung di email Anda</p>
-            <form action="forms/newsletter.php" method="post" class="php-email-form ev-newsletter-form">
-              <input type="email" name="email" placeholder="Masukkan email Anda" required autocomplete="email">
-              <button type="submit">Kabari Saya</button>
-              <div class="loading">Memuat</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Terima kasih! Anda akan menerima update kami.</div>
+            <p>Konsultasikan agenda pelatihan terbaru langsung lewat WhatsApp admin kami</p>
+            <form class="ev-newsletter-form" onsubmit="submitEventNewsletterToWhatsApp(event)">
+              <input type="text" name="message" placeholder="Tulis kebutuhan atau program yang Anda cari" required autocomplete="off">
+              <button type="submit">Chat Admin</button>
             </form>
           </div>
         </div>
@@ -762,19 +757,24 @@
 
   <!-- ========== VENDOR JS ========== -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/php-email-form/validate.js?v=20260323" defer></script>
   <script src="assets/vendor/aos/aos.js?v=20260323" defer></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js?v=20260323" defer></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js?v=20260323" defer></script>
 
   <!-- Main JS -->
   <script src="assets/js/main.js?v=20260323" defer></script>
 
   <!-- ========== EVENT FILTER, SEARCH & PAGINATION ========== -->
   <script>
+    function submitEventNewsletterToWhatsApp(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const field = form.querySelector('input[name="message"]');
+      const detail = field && field.value.trim()
+        ? `Kebutuhan saya: ${field.value.trim()}`
+        : 'Saya ingin info agenda pelatihan terbaru.';
+      const message = encodeURIComponent(`Halo RK Institute, saya ingin konsultasi agenda pelatihan terbaru. ${detail}`);
+      window.open(`https://wa.me/6283198002246?text=${message}`, '_blank', 'noopener');
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
       var grid          = document.getElementById('evGrid');
       var filterButtons = document.querySelectorAll('.filter-tag');
@@ -937,49 +937,6 @@
       });
     })();
   </script>
-
-  <!-- ========== NEWSLETTER AUTO-DISMISS ========== -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var newsletterForm = document.querySelector('.ev-newsletter-form');
-    if (!newsletterForm) return;
-
-    var sentMessage = newsletterForm.querySelector('.sent-message');
-
-    // Sembunyikan pesan sukses saat klik tombol apapun di halaman
-    document.addEventListener('click', function (e) {
-      if (!sentMessage) return;
-      if (sentMessage.style.display === 'block' || sentMessage.classList.contains('d-block')) {
-        // Jangan dismiss jika klik ada di dalam form newsletter itu sendiri
-        if (!newsletterForm.contains(e.target)) {
-          sentMessage.style.display = 'none';
-          sentMessage.classList.remove('d-block');
-        }
-      }
-    }, true); // useCapture: true agar tangkap semua klik sebelum bubbling
-
-    // Bonus: auto-dismiss otomatis setelah 3 detik
-    var observer = new MutationObserver(function (mutations) {
-      mutations.forEach(function (mutation) {
-        if (
-          sentMessage.style.display === 'block' ||
-          sentMessage.classList.contains('d-block')
-        ) {
-          clearTimeout(sentMessage._dismissTimer);
-          sentMessage._dismissTimer = setTimeout(function () {
-            sentMessage.style.display = 'none';
-            sentMessage.classList.remove('d-block');
-          }, 3000);
-        }
-      });
-    });
-
-    observer.observe(sentMessage, {
-      attributes: true,
-      attributeFilter: ['style', 'class']
-    });
-  });
-</script>
 
 </body>
 </html>

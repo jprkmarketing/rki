@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <title>Pelatihan Jurnalistik, Digital Marketing & Event Organizer Kediri | Radar Kediri Institute</title>
   <meta name="description" content="Radar Kediri Institute (RK Institute) menyediakan pelatihan jurnalistik, digital marketing, public speaking, coding AI, event organizer, dan publikasi media untuk sekolah, kampus, instansi, dan perusahaan di Kediri Raya.">
 <!-- Canonical & Robots -->
@@ -111,13 +109,6 @@
   <!-- Preload LCP Hero Image -->
   <link rel="preload" as="image" href="assets/img/index/Header-RK-Institute.webp" type="image/webp" fetchpriority="high">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap"></noscript>
-
   <!-- Critical CSS -->
   <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css?v=20260323">
   <link rel="stylesheet" href="assets/css/main.css?v=20260323">
@@ -125,11 +116,15 @@
   <!-- Non-critical CSS: load async -->
   <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=20260323" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css?v=20260323"></noscript>
-  <link rel="stylesheet" href="assets/vendor/aos/aos.css?v=20260323" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="assets/vendor/aos/aos.css?v=20260323"></noscript>
 
   <!-- Inline CSS: Showcase Card Fix -->
   <style>
+    :root {
+      --default-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --heading-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      --nav-font: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
     .showcase-card .card-thumbnail {
       height: 100% !important;
       min-height: 180px !important;
@@ -225,6 +220,93 @@
       min-width: 44px;
       min-height: 44px;
     }
+
+    .whatsapp-panel {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .whatsapp-panel .whatsapp-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+
+    .whatsapp-panel .whatsapp-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .whatsapp-panel .whatsapp-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 52px;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .whatsapp-panel .whatsapp-action.primary {
+      background: #25d366;
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(37, 211, 102, 0.25);
+    }
+
+    .whatsapp-panel .whatsapp-action.secondary {
+      border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+      background: color-mix(in srgb, var(--accent-color), transparent 92%);
+      color: var(--heading-color);
+    }
+
+    .whatsapp-panel .whatsapp-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-panel .whatsapp-action.primary:hover {
+      background: #1ebe5d;
+      color: #ffffff;
+      box-shadow: 0 18px 36px rgba(37, 211, 102, 0.32);
+    }
+
+    .whatsapp-panel .whatsapp-points {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .whatsapp-panel .whatsapp-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      color: #e8f1fb;
+      line-height: 1.65;
+    }
+
+    .whatsapp-panel .whatsapp-points i {
+      color: #25d366;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    .whatsapp-panel .whatsapp-note {
+      margin: 0;
+      color: color-mix(in srgb, var(--default-color), transparent 18%);
+      line-height: 1.7;
+    }
   </style>
 </head>
 
@@ -283,8 +365,8 @@
               <h1>Radar Kediri Institute</h1>
               <p>Kami hadir membantu institusi Anda tumbuh melalui program pelatihan profesional, publikasi media terverifikasi Dewan Pers, dan kegiatan pengembangan SDM yang terukur dan berdampak nyata.</p>
               <div class="hero-actions">
-                <a href="#services" class="btn btn-accent"><i class="bi bi-arrow-right-circle me-2"></i>Pelatihan</a>
-                <a href="#portfolio" class="btn btn-ghost">Kegiatan</a>
+                <a href="https://wa.me/6283198002246?text=Halo%20RK%20Institute%2C%20saya%20ingin%20konsultasi%20program." class="btn btn-accent" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp me-2"></i>Chat WhatsApp</a>
+                <a href="#services" class="btn btn-ghost">Lihat Program</a>
               </div>
             </div>
           </div>
@@ -298,19 +380,19 @@
                 <div class="row g-0">
                   <div class="col-4">
                     <div class="stat-card">
-                      <span class="stat-value purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1">0</span>
+                      <span class="stat-value">50+</span>
                       <span class="stat-text">Mitra Institusi</span>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="stat-card">
-                      <span class="stat-value purecounter" data-purecounter-start="0" data-purecounter-end="4100" data-purecounter-duration="1">0</span>
+                      <span class="stat-value">4100+</span>
                       <span class="stat-text">Peserta Terlatih</span>
                     </div>
                   </div>
                   <div class="col-4">
                     <div class="stat-card">
-                      <span class="stat-value purecounter" data-purecounter-start="0" data-purecounter-end="230" data-purecounter-duration="1">0</span>
+                      <span class="stat-value">230+</span>
                       <span class="stat-text">Program Terlaksana</span>
                     </div>
                   </div>
@@ -522,7 +604,7 @@
                   <p>Kami siap merancang program yang disesuaikan dengan kebutuhan sekolah, kampus, instansi pemerintah, atau perusahaan Anda.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end text-center">
-                  <a href="#contact" class="action-btn">Hubungi Kami</a>
+                  <a href="https://wa.me/6283198002246?text=Halo%20RK%20Institute%2C%20saya%20ingin%20info%20program%20pelatihan." class="action-btn" target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
                 </div>
               </div>
             </div>
@@ -959,7 +1041,7 @@
               <p>Mari transformasikan ide-ide Anda menjadi pengalaman digital dan edukatif yang luar biasa bersama kami.</p>
             </div>
             <div class="col-lg-4 text-lg-end text-center">
-              <a href="#contact" class="action-btn">Hubungi Kami</a>
+              <a href="https://wa.me/6283198002246?text=Halo%20RK%20Institute%2C%20saya%20ingin%20diskusi%20kebutuhan%20instansi." class="action-btn" target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
             </div>
           </div>
         </div>
@@ -1016,7 +1098,7 @@
               </div>
 
               <div class="action-btns">
-                <a href="#contact" class="btn btn-accent">Mulai Program Anda</a>
+                <a href="https://wa.me/6283198002246?text=Halo%20RK%20Institute%2C%20saya%20siap%20membahas%20program%20untuk%20instansi%20kami." class="btn btn-accent" target="_blank" rel="noopener noreferrer">Mulai via WhatsApp</a>
                 <a href="galeri.html" class="btn btn-ghost">Lihat Galeri Kegiatan</a>
               </div>
             </div>
@@ -1036,7 +1118,7 @@
               <div class="highlight-header">
                 <div class="icon-circle"><i class="bi bi-palette-fill"></i></div>
                 <div class="counter-badge">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="2">95</span>
+                  <span>95</span>
                   <span class="counter-unit">% Kepuasan Peserta</span>
                 </div>
               </div>
@@ -1050,7 +1132,7 @@
               <div class="highlight-header">
                 <div class="icon-circle"><i class="bi bi-graph-up-arrow"></i></div>
                 <div class="counter-badge">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="96" data-purecounter-duration="2">96</span>
+                  <span>96</span>
                   <span class="counter-unit">% Dampak Kompetensi</span>
                 </div>
               </div>
@@ -1064,7 +1146,7 @@
               <div class="highlight-header">
                 <div class="icon-circle"><i class="bi bi-award-fill"></i></div>
                 <div class="counter-badge">
-                  <span class="purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2">50</span>
+                  <span>50</span>
                   <span class="counter-unit">+ Mitra Instansi</span>
                 </div>
               </div>
@@ -1458,10 +1540,10 @@
         <div class="row g-4 mb-5">
           <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-delay="150">
             <div class="reach-card">
-              <div class="reach-icon-wrap"><i class="bi bi-envelope-at"></i></div>
-              <p class="h5 mb-0">Kirim Email</p>
-              <p>officialrkinstitute@gmail.com</p>
-              <span class="reach-note">Respon dalam 3-5 jam kerja</span>
+              <div class="reach-icon-wrap"><i class="bi bi-whatsapp"></i></div>
+              <p class="h5 mb-0">Chat WhatsApp</p>
+              <p>+62 831-9800-2246</p>
+              <span class="reach-note">Respons cepat untuk konsultasi program</span>
             </div>
           </div>
 
@@ -1495,7 +1577,7 @@
                 <div class="panel-stats" data-aos="zoom-in" data-aos-delay="300">
                   <div class="row g-3">
                     <div class="col-4">
-                      <div class="single-stat"><strong>12 jam</strong><span>Rerata Respon</span></div>
+                      <div class="single-stat"><strong>5-15 mnt</strong><span>Respon WhatsApp</span></div>
                     </div>
                     <div class="col-4">
                       <div class="single-stat"><strong>96%</strong><span>Klien Puas</span></div>
@@ -1509,10 +1591,10 @@
                 <div class="panel-social" data-aos="fade-up" data-aos-delay="400">
                   <span>Ikuti Perjalanan Kami</span>
                   <div class="social-icons">
-                    <a href="https://www.instagram.com/radarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Media Sosial RK Institute"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://www.instagram.com/radarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Media Sosial RK Institute"><i class="bi bi-twitter-x"></i></a>
-                    <a href="https://www.instagram.com/radarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Media Sosial RK Institute"><i class="bi bi-github"></i></a>
-                    <a href="https://www.instagram.com/radarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Media Sosial RK Institute"><i class="bi bi-discord"></i></a>
+                    <a href="https://wa.me/6283198002246" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp RK Institute"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/radarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Instagram RK Institute"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/jawaposradarkediri/" target="_blank" rel="noopener noreferrer" aria-label="Facebook RK Institute"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.youtube.com/c/RADARKEDIRITV" target="_blank" rel="noopener noreferrer" aria-label="YouTube RK Institute"><i class="bi bi-youtube"></i></a>
                   </div>
                 </div>
               </div>
@@ -1520,44 +1602,31 @@
           </div>
 
           <div class="col-lg-7">
-            <div class="form-panel">
+            <div class="form-panel whatsapp-panel">
               <div class="form-intro">
-                <i class="bi bi-pencil-square"></i>
-                <h3>Bagikan Pemikiran Anda</h3>
-                <p>Silakan isi formulir di bawah ini untuk konsultasi pendaftaran atau penawaran pelatihan khusus instansi.</p>
+                <div class="whatsapp-kicker"><i class="bi bi-whatsapp"></i> CTA Utama</div>
+                <h3>Diskusikan kebutuhan Anda langsung lewat WhatsApp</h3>
+                <p>Kami sederhanakan alur kontak supaya calon klien bisa langsung konsultasi tanpa isi form. Lebih cepat, lebih praktis, dan lebih cocok untuk traffic mobile.</p>
               </div>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row g-3">
-                  <div class="col-sm-6">
-                    <label class="form-label">Nama Lengkap</label>
-                    <input type="text" name="name" class="form-control" placeholder="Nama Anda" required autocomplete="name">
-                  </div>
-                  <div class="col-sm-6">
-                    <label class="form-label">Alamat Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="nama@email.com" required autocomplete="email">
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label">Topik</label>
-                    <input type="text" name="subject" class="form-control" placeholder="Ada yang bisa kami bantu?" required>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label">Pesan Anda</label>
-                    <textarea name="message" class="form-control" rows="5" placeholder="Gambarkan proyek atau kebutuhan pelatihan Anda secara detail..." required></textarea>
-                  </div>
-                </div>
+              <ul class="whatsapp-points">
+                <li><i class="bi bi-check-circle-fill"></i><span>Konsultasi program sekolah, kampus, instansi, atau perusahaan tanpa menunggu balasan email.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i><span>Lebih cepat untuk meminta proposal, jadwal pelatihan, estimasi anggaran, dan kustomisasi materi.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i><span>Tim admin bisa langsung lanjut ke briefing kebutuhan, kirim katalog, atau jadwalkan follow-up.</span></li>
+              </ul>
 
-                <div class="my-3">
-                  <div class="loading">Memuat</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Pesan Anda telah terkirim. Terima kasih!</div>
-                </div>
+              <div class="whatsapp-actions">
+                <a href="https://wa.me/6283198002246?text=Halo%20RK%20Institute%2C%20saya%20ingin%20konsultasi%20program%20pelatihan." class="whatsapp-action primary" target="_blank" rel="noopener noreferrer">
+                  <i class="bi bi-whatsapp"></i>
+                  <span>Chat WhatsApp Sekarang</span>
+                </a>
+                <a href="portofolio.html" class="whatsapp-action secondary">
+                  <i class="bi bi-collection"></i>
+                  <span>Lihat Portofolio</span>
+                </a>
+              </div>
 
-                <button type="submit" class="dispatch-btn">
-                  <i class="bi bi-arrow-right-circle-fill"></i>
-                  <span>Kirim Pesan</span>
-                </button>
-              </form>
+              <p class="whatsapp-note">Jika Anda tetap membutuhkan dokumen resmi atau detail lanjutan, tim kami akan bantu tindak lanjuti setelah percakapan awal di WhatsApp.</p>
             </div>
           </div>
 
@@ -1745,9 +1814,6 @@
 
   <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js?v=20260323" defer></script>
-  <script src="assets/vendor/php-email-form/validate.js?v=20260323" defer></script>
-  <script src="assets/vendor/aos/aos.js?v=20260323" defer></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js?v=20260323" defer></script>
 
   <!-- Main JS -->
   <script src="assets/js/main.js?v=20260323" defer></script>
