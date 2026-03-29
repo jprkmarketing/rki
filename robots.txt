@@ -3,7 +3,7 @@ Allow: /
 
 # Disallow utility/non-content paths
 Disallow: /forms/
-Disallow: /assets/
+Allow: /assets/
 
 # Sitemap
 Sitemap: https://rkinstitute.id/sitemap.xml
