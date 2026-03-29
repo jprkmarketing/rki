@@ -68,14 +68,19 @@
     new PureCounter();
   }
 
-  if (typeof GLightbox !== 'undefined' && document.querySelector('.glightbox')) {
+  function initGlightbox() {
+    if (typeof GLightbox === 'undefined' || !document.querySelector('.glightbox')) return;
+    if (document.body.dataset.glightboxInitialized === 'true') return;
     GLightbox({
       selector: '.glightbox'
     });
+    document.body.dataset.glightboxInitialized = 'true';
   }
 
-  if (typeof imagesLoaded !== 'undefined' && typeof Isotope !== 'undefined') {
+  function initIsotopeLayouts() {
+    if (typeof imagesLoaded === 'undefined' || typeof Isotope === 'undefined') return;
     document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+      if (isotopeItem.dataset.isotopeInitialized === 'true') return;
       let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
       let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
       let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
@@ -102,8 +107,12 @@
           }
         }, false);
       });
+      isotopeItem.dataset.isotopeInitialized = 'true';
     });
   }
+
+  initGlightbox();
+  initIsotopeLayouts();
 
   function loadScriptOnce(src) {
     return new Promise((resolve, reject) => {
@@ -117,6 +126,21 @@
       script.onload = () => resolve();
       script.onerror = () => reject(new Error(`Failed to load script: ${src}`));
       document.body.appendChild(script);
+    });
+  }
+
+  function loadStylesheetOnce(href) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`link[href="${href}"]`)) {
+        resolve();
+        return;
+      }
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.onload = () => resolve();
+      link.onerror = () => reject(new Error(`Failed to load stylesheet: ${href}`));
+      document.head.appendChild(link);
     });
   }
 
@@ -146,11 +170,14 @@
     if (swiperTargets.length === 0) return;
 
     const startSwiper = () => {
-      if (typeof Swiper !== 'undefined') {
-        initSwiper();
-        return;
+      const tasks = [];
+      if (typeof Swiper === 'undefined') {
+        tasks.push(loadScriptOnce('assets/vendor/swiper/swiper-bundle.min.js?v=20260323'));
       }
-      loadScriptOnce('assets/vendor/swiper/swiper-bundle.min.js?v=20260323')
+      if (!document.querySelector('link[href="assets/vendor/swiper/swiper-bundle.min.css?v=20260323"]')) {
+        tasks.push(loadStylesheetOnce('assets/vendor/swiper/swiper-bundle.min.css?v=20260323'));
+      }
+      Promise.all(tasks)
         .then(() => initSwiper())
         .catch(() => {});
     };
@@ -172,6 +199,51 @@
     swiperTargets.forEach((target) => observer.observe(target));
   }
 
+  function initPortfolioFeaturesLazy() {
+    const portfolioSection = document.querySelector('#portfolio');
+    const needsPortfolioScripts = document.querySelector('.isotope-layout') || document.querySelector('.glightbox');
+    if (!portfolioSection || !needsPortfolioScripts) return;
+
+    const startPortfolioFeatures = () => {
+      const tasks = [];
+      if (typeof imagesLoaded === 'undefined') {
+        tasks.push(loadScriptOnce('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js?v=20260323'));
+      }
+      if (typeof Isotope === 'undefined') {
+        tasks.push(loadScriptOnce('assets/vendor/isotope-layout/isotope.pkgd.min.js?v=20260323'));
+      }
+      if (typeof GLightbox === 'undefined') {
+        tasks.push(loadScriptOnce('assets/vendor/glightbox/js/glightbox.min.js?v=20260323'));
+      }
+      if (!document.querySelector('link[href="assets/vendor/glightbox/css/glightbox.min.css?v=20260323"]')) {
+        tasks.push(loadStylesheetOnce('assets/vendor/glightbox/css/glightbox.min.css?v=20260323'));
+      }
+
+      Promise.all(tasks)
+        .catch(() => {})
+        .finally(() => {
+          initGlightbox();
+          initIsotopeLayouts();
+        });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+      startPortfolioFeatures();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const hasVisibleTarget = entries.some((entry) => entry.isIntersecting);
+      if (!hasVisibleTarget) return;
+      observer.disconnect();
+      startPortfolioFeatures();
+    }, {
+      rootMargin: '300px 0px'
+    });
+
+    observer.observe(portfolioSection);
+  }
+
   window.addEventListener("load", () => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(initSwiperLazy, {
@@ -180,6 +252,7 @@
     } else {
       setTimeout(initSwiperLazy, 500);
     }
+    initPortfolioFeaturesLazy();
   });
   document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header').forEach((faqItem) => {
     faqItem.addEventListener('click', () => {
